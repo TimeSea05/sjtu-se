@@ -74,6 +74,22 @@ public class CuckooGUIApp extends JFrame {
             entries = table.GetInnerTables();
 
             updateArrayPanels(array1Panel, array2Panel);
+            keyInputArea.setText("");
+            valueInputArea.setText("");
+        });
+
+        deleteButton.addActionListener(e -> {
+            String keyText = keyInputArea.getText();
+            if (keyText.equals("")) {
+                return;
+            }
+            int key = Integer.parseInt(keyText);
+            table.Delete(key);
+            entries = table.GetInnerTables();
+
+            updateArrayPanels(array1Panel, array2Panel);
+            keyInputArea.setText("");
+            valueInputArea.setText("");
         });
     }
 
